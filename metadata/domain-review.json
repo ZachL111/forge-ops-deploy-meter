@@ -1,0 +1,73 @@
+{
+  "repo": "forge-ops-deploy-meter",
+  "language": "JavaScript",
+  "category": "Automation",
+  "goal": "Develop a JavaScript command-oriented project for deploy scenarios with append-only fixtures, checkpoint recovery checks, and single-node deterministic mode.",
+  "review_model": {
+    "terms": [
+      "dry-run spread",
+      "rename risk",
+      "operator cost",
+      "idempotence"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "dry-run spread",
+      "signal": 40,
+      "slack": 40,
+      "drag": 14,
+      "confidence": 66,
+      "score": 144,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "rename risk",
+      "signal": 53,
+      "slack": 40,
+      "drag": 26,
+      "confidence": 62,
+      "score": 130,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "operator cost",
+      "signal": 72,
+      "slack": 40,
+      "drag": 24,
+      "confidence": 86,
+      "score": 198,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "idempotence",
+      "signal": 77,
+      "slack": 51,
+      "drag": 24,
+      "confidence": 80,
+      "score": 213,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "dry-run spread",
+      "signal": 70,
+      "slack": 28,
+      "drag": 27,
+      "confidence": 78,
+      "score": 165,
+      "lane": "ship"
+    }
+  ]
+}
